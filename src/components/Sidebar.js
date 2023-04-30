@@ -9,7 +9,7 @@ import { CartContext } from "../contexts/CartContext";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart, clearCart } = useContext(CartContext);
+  const { cart, clearCart, total } = useContext(CartContext);
 
   return (
     <div
@@ -27,7 +27,7 @@ const Sidebar = () => {
           <IoMdArrowForward className='text-2xl' />
         </div>
       </div>
-      <div>
+      <div className='flex flex-col gap-y-2 h-[450px] lg:h-[450px] overflow-y-auto overflow-x-hidden border-b'>
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
@@ -35,7 +35,7 @@ const Sidebar = () => {
       <div className='flex flex-col gap-y-3 py-4 mt-4'>
         <div className='flex w-full justify-between items-center '>
           <div className='uppercase font-semibold'>
-            <span className='mr-2'>Total:</span>$1000
+            <span className='mr-2'>Total:</span>$ {parseFloat(total).toFixed(2)}
           </div>
           <div
             onClick={clearCart}
