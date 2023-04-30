@@ -10,7 +10,7 @@ const Product = ({ product }) => {
     <div>
       <div
         className='border border-[#e4e4e4] h-[300px] mb-4 relative 
-    overflow-hidden group transition '
+    overflow-hidden group transition mt-3'
       >
         <div className='w-full h-full flex justify-center items-center'>
           {/* image */}
